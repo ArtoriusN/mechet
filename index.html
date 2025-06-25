@@ -45,7 +45,7 @@
             height: 70px;
         }
         nav { display: flex; justify-content: space-between; align-items: center; height: 100%; }
-        nav .logo { font-weight: 700; font-size: 0.9rem; color: #52525B; }
+        nav .logo { font-weight: 700; font-size: 0.9rem; color: #52525B; line-height: 1.3; }
         nav ul { list-style: none; display: flex; gap: 25px; margin: 0; padding: 0; }
         nav ul li a { text-decoration: none; color: #52525B; font-weight: 500; font-size: 0.9rem; transition: color 0.3s; }
         nav ul li a:hover { color: var(--color-primary); }
@@ -59,125 +59,90 @@
             gap: 30px;
             align-items: start;
         }
-        /* Левая панель */
         .hero-info-panel {
-            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.ibb.co/3sX8L6X/mosque-2.jpg');
-            background-size: cover;
-            background-position: center;
-            color: var(--color-light-text);
-            padding: 40px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            flex-direction: column;
-            height: 580px; /* Фиксированная высота для выравнивания */
-            justify-content: space-between;
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://i.ibb.co/L5hSc2X/mosque-1.jpg');
+            background-size: cover; background-position: center; color: var(--color-light-text);
+            padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow-lg);
+            display: flex; flex-direction: column; height: 580px; justify-content: space-between;
         }
-        .hero-info-panel h1 {
-            font-size: 2.8rem;
-            font-weight: 800;
-            line-height: 1.2;
-            color: var(--color-light-text);
-            margin: 0;
-        }
+        .hero-info-panel h1 { font-size: 2.8rem; font-weight: 800; line-height: 1.2; color: var(--color-light-text); margin: 0; }
         .progress-box { margin: auto 0; }
-        .progress-bar-container { width: 100%; background-color: rgba(255,255,255,0.2); height: 12px; border-radius: 6px; overflow: hidden; margin: 15px 0; }
+        .progress-bar-wrapper { display: flex; align-items: center; gap: 15px; }
+        .progress-bar-container { flex-grow: 1; background-color: rgba(255,255,255,0.2); height: 12px; border-radius: 6px; overflow: hidden; }
         .progress-bar { width: 0; height: 100%; background-color: var(--color-light-text); transition: width 2s ease-out; }
-        .progress-stats { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; }
-        .hero-quote {
-            background: rgba(0,0,0,0.3);
-            padding: 15px;
-            border-radius: calc(var(--radius) / 2);
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        .hero-quote p { margin: 0; }
-        .hero-quote span { display: block; opacity: 0.7; margin-top: 5px; }
+        .progress-percentage { font-weight: 700; font-size: 1.2rem; color: white; }
+        .progress-stats { display: flex; justify-content: space-between; font-weight: 700; font-size: 1.1rem; margin-top: 15px; }
+        .hero-quote { background: rgba(0,0,0,0.3); padding: 15px; border-radius: calc(var(--radius) / 2); text-align: center; font-size: 0.9rem; }
         
-        /* Правая панель */
         .hero-donate-panel {
-            background-color: white;
-            padding: 30px;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow-md);
-            border: 1px solid var(--color-border);
-            height: 580px;
+            background-color: white; padding: 30px; border-radius: var(--radius);
+            box-shadow: var(--shadow-md); border: 1px solid var(--color-border); height: 580px;
         }
         .hero-donate-panel h3 { margin-top: 0; font-size: 1.3rem; text-align: center; }
         .payment-options-list { list-style: none; padding: 0; margin: 20px 0; }
         .payment-options-list li { margin-bottom: 10px; }
         .payment-options-list input[type="radio"] { display: none; }
         .payment-options-list label {
-            display: flex; align-items: center; gap: 15px;
-            padding: 15px; border-radius: 8px; border: 2px solid var(--color-border);
+            display: flex; align-items: center; gap: 15px; padding: 15px;
+            border-radius: 8px; border: 2px solid var(--color-border);
             cursor: pointer; transition: border-color 0.3s, background-color 0.3s;
         }
         .payment-options-list label:hover { border-color: var(--color-accent); }
-        .payment-options-list input[type="radio"]:checked + label {
-            border-color: var(--color-accent);
-            background-color: var(--color-light-bg);
-        }
-        .payment-options-list .icon { width: 30px; height: 30px; object-fit: contain; }
-        .bank-details {
-            display: none;
-            background-color: var(--color-light-bg);
-            padding: 15px;
-            margin-top: 10px;
-            border-radius: 8px;
-            font-size: 0.9rem;
-            border: 1px dashed var(--color-accent);
-        }
+        .payment-options-list input[type="radio"]:checked + label { border-color: var(--color-accent); background-color: var(--color-light-bg); }
+        .payment-options-list .icon { width: 24px; height: 24px; object-fit: contain; }
+        .payment-label-text { font-weight: 500; }
+        .payment-label-note { font-size: 0.8rem; color: #71717A; }
+        .bank-details { display: none; background-color: var(--color-light-bg); padding: 15px; margin-top: 10px; border-radius: 8px; font-size: 0.9rem; border: 1px dashed var(--color-accent); }
         .bank-details p { margin: 5px 0; }
-        .cta-button {
-            display: block; width: 100%; background-color: var(--color-accent); color: white;
-            padding: 18px; border-radius: 8px; text-decoration: none; font-size: 1.2rem; font-weight: 700;
-            border: none; cursor: pointer; text-align: center; transition: background-color 0.3s;
-        }
+        .cta-button { display: block; width: 100%; background-color: var(--color-accent); color: white; padding: 18px; border-radius: 8px; text-decoration: none; font-size: 1.2rem; font-weight: 700; border: none; cursor: pointer; text-align: center; transition: background-color 0.3s; margin-top: 20px; }
         .cta-button:hover { background-color: #228a39; }
 
-        /* --- 4. ДОКУМЕНТЫ --- */
-        #documents { background-color: white; }
-        .documents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-        .document-card {
-            display: block; text-decoration: none; color: var(--color-dark-text);
-            background-color: #F8FAFC; border: 1px solid var(--color-border);
-            padding: 25px; border-radius: var(--radius); text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .document-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
-        .document-card svg { width: 40px; height: 40px; color: var(--color-primary); margin-bottom: 15px; }
-        .document-card h3 { font-size: 1.1rem; margin: 0; color: var(--color-primary); }
-
-        /* --- 5. ГАЛЕРЕЯ (О ПРОЕКТЕ) --- */
-        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-        .gallery img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-md); transition: transform 0.3s; }
-        .gallery img:hover { transform: scale(1.03); }
-
-        /* --- Остальные секции --- */
-        .timeline-wrapper { position: relative; max-width: 800px; margin: 0 auto; }
+        /* --- 4. КОНТЕНТНЫЕ БЛОКИ --- */
+        .timeline-wrapper, .estimate-wrapper { max-width: 800px; margin: 0 auto; }
         .timeline-wrapper::before { content: ''; position: absolute; left: 14px; top: 0; bottom: 0; width: 4px; background-color: #e2e8f0; }
         .timeline-item { position: relative; padding-left: 60px; margin-bottom: 50px; }
         .timeline-item:last-child { margin-bottom: 0; }
         .timeline-item::before { content: ''; position: absolute; left: 0; top: 5px; width: 32px; height: 32px; border-radius: 50%; background-color: white; border: 4px solid var(--color-accent); }
-        .timeline-content { background: white; padding: 25px; border-radius: var(--radius); box-shadow: var(--shadow-md); }
+        .timeline-content { background: white; padding: 25px; border-radius: var(--radius); box-shadow: var(--shadow-md); border: 1px solid var(--color-border); }
+        .timeline-content h3 { font-size: 1.2rem; margin-top: 0; margin-bottom: 10px; }
+        
+        .estimate-table { width: 100%; border-collapse: separate; border-spacing: 0 10px; }
+        .estimate-table td { padding: 20px; background: #F8FAFC; border: 1px solid var(--color-border); border-width: 1px 0; }
+        .estimate-table td:first-child { border-left-width: 1px; border-top-left-radius: 8px; border-bottom-left-radius: 8px;}
+        .estimate-table td:last-child { text-align: right; font-weight: 700; border-right-width: 1px; border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+        .total-row td { font-size: 1.2em; font-weight: 800; color: var(--color-primary); background-color: white; border-top: 2px solid var(--color-accent); }
+        .offer { text-align: center; margin-top: 40px; padding: 25px; background-color: var(--color-light-bg); border-radius: var(--radius); border: 1px solid var(--color-border); }
+        
+        .documents-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .document-card { display: block; text-decoration: none; color: var(--color-dark-text); background-color: #F8FAFC; border: 1px solid var(--color-border); padding: 25px; border-radius: var(--radius); text-align: center; transition: transform 0.3s, box-shadow 0.3s; }
+        .document-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-md); }
+        
+        .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+        .gallery img { width: 100%; border-radius: var(--radius); box-shadow: var(--shadow-md); transition: transform 0.3s; }
         
         .report-table { width: 100%; max-width: 800px; margin: 20px auto; border-collapse: collapse; text-align: center; border: 1px solid var(--color-border); border-radius: var(--radius); overflow: hidden; }
         .report-table th, .report-table td { padding: 15px; }
         .report-table thead { background-color: var(--color-primary); color: white; font-weight: 700; }
         .report-table tbody tr:nth-child(even) { background-color: #F8FAFC; }
         
-        footer { background-color: var(--color-primary); color: rgba(255,255,255,0.8); text-align: center; padding: 60px 20px; }
+        /* --- 5. ФУТЕР --- */
+        footer { background-color: var(--color-primary); color: rgba(255,255,255,0.8); padding: 60px 20px; }
         footer h2 { color: white; }
+        .footer-contacts { max-width: 500px; margin: 0 auto; }
+        .footer-contacts p { margin: 10px 0; font-size: 1.1em; }
+        .social-links { margin: 30px 0; }
+        .social-links a { color: white; text-decoration: none; margin: 0 15px; transition: opacity 0.3s; }
+        .social-links a:hover { opacity: 0.8; }
+        .copyright { margin-top: 40px; font-size: 0.9em; opacity: 0.6; }
 
         /* --- АДАПТИВНОСТЬ --- */
         @media (max-width: 992px) {
             .hero-grid { grid-template-columns: 1fr; }
             .hero-info-panel, .hero-donate-panel { height: auto; }
-            .documents-grid { grid-template-columns: 1fr; }
         }
         @media (max-width: 768px) {
-            nav ul { display: none; } /* Упрощено для примера, нужна логика бургера */
-            .gallery { grid-template-columns: 1fr 1fr; }
+            nav ul { display: none; } .burger { display: block; }
+            .gallery, .documents-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
@@ -200,113 +165,102 @@
     </header>
 
     <main>
-        <section class="hero">
+        <section class="hero" id="donate-form">
             <div class="container">
-                <div class="hero-grid" id="donate-form">
-                    <!-- ЛЕВАЯ ПАНЕЛЬ -->
+                <div class="hero-grid">
                     <div class="hero-info-panel">
-                        <div>
-                            <h1>Строим мечеть в с. Державино вместе!</h1>
-                        </div>
+                        <h1>Строим мечеть в с. Державино вместе!</h1>
                         <div class="progress-box">
-                            <div class="progress-bar-container">
-                                <div class="progress-bar" id="progress-bar"></div>
+                            <div class="progress-bar-wrapper">
+                                <div class="progress-bar-container"><div class="progress-bar" id="progress-bar"></div></div>
+                                <div class="progress-percentage" id="progress-percentage">0%</div>
                             </div>
                             <div class="progress-stats">
                                 <span id="collected-amount-text">Собрано: 0 ₽</span>
                                 <span id="goal-amount-text">Нужно: 0 ₽</span>
                             </div>
                         </div>
-                        <div class="hero-quote">
-                            <p>«Защитите себя от огня Ада пожертвованием хотя бы половинки финика»</p>
-                            <span>Хадис передал аль-Бухари</span>
-                        </div>
+                        <div class="hero-quote"><p>«Защитите себя от огня Ада пожертвованием хотя бы половинки финика»</p></div>
                     </div>
                     
-                    <!-- ПРАВАЯ ПАНЕЛЬ -->
                     <div class="hero-donate-panel">
                         <h3>Внести свой вклад</h3>
                         <ul class="payment-options-list">
                             <li>
                                 <input type="radio" name="payment_method" id="sber" value="sber" checked>
-                                <label for="sber"><img src="https://i.ibb.co/L8r4v85/sber.png" alt="Сбер" class="icon"> <span>Сбербанк (СБП)</span></label>
+                                <label for="sber">
+                                    <img src="https://i.ibb.co/L8r4v85/sber.png" alt="Сбер" class="icon">
+                                    <div><span class="payment-label-text">Сбербанк (СБП)</span><div class="payment-label-note">+7 960 050-24-12 (Анвар З. Х.)</div></div>
+                                </label>
                             </li>
                             <li>
                                 <input type="radio" name="payment_method" id="akbars" value="akbars">
-                                <label for="akbars"><img src="https://i.ibb.co/3WkYwYw/akbars.png" alt="Ак Барс" class="icon"> <span>Ак Барс (СБП)</span></label>
+                                <label for="akbars">
+                                    <img src="https://i.ibb.co/3WkYwYw/akbars.png" alt="Ак Барс" class="icon">
+                                    <div><span class="payment-label-text">Ак Барс (СБП)</span><div class="payment-label-note">+7 903 388-74-20 (Мансур Т.)</div></div>
+                                </label>
                             </li>
                             <li>
                                 <input type="radio" name="payment_method" id="invoice" value="invoice">
                                 <label for="invoice">
-                                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                                    <span>Расчетный счет организации</span>
+                                    <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+                                    <div><span class="payment-label-text">Расчетный счет организации</span></div>
                                 </label>
                             </li>
                         </ul>
-                        <div id="bank-details" class="bank-details">
-                            <p><strong>Получатель:</strong> МРО "Державино"</p>
-                            <p><strong>ИНН:</strong> 1234567890</p>
-                            <p><strong>КПП:</strong> 123456789</p>
-                            <p><strong>Р/С:</strong> 40700000000000000001</p>
-                            <p><strong>Банк:</strong> Филиал "Поволжский" АО "БАНК"</p>
-                            <p><strong>БИК:</strong> 044525225</p>
-                            <p><strong>Назначение платежа:</strong> Пожертвование на строительство мечети. НДС не облагается.</p>
-                        </div>
-                        <button class="cta-button">Пожертвовать</button>
+                        <div id="bank-details" class="bank-details"><p><strong>Получатель:</strong> МРО "Державино"</p><p><strong>Р/С:</strong> 40700000000000000001</p><p><strong>Назначение платежа:</strong> Пожертвование на строительство мечети.</p></div>
+                        <button class="cta-button">Перейти к пожертвованию</button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="documents">
-            <div class="container">
-                <h2>Официальные документы</h2>
-                <div class="documents-grid">
-                    <a href="#" class="document-card">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        <h3>Эскизный проект</h3>
-                    </a>
-                    <a href="#" class="document-card">
-                        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
-                        <h3>Разрешение на строительство</h3>
-                    </a>
-                    <a href="#" class="document-card">
-                         <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
-                        <h3>Учредительные документы</h3>
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <section id="about">
-            <div class="container">
-                <h2>Проект мечети</h2>
-                <div class="gallery">
-                    <!-- Галерея будет построена здесь с помощью JS -->
-                </div>
-            </div>
-        </section>
-
-        <section id="progress">
+        <section id="progress" style="background-color: white;">
             <div class="container">
                 <h2>Ход строительства</h2>
-                 <div class="timeline-wrapper">
-                    <div class="timeline-item">
-                        <div class="timeline-content"><h3>Коммуникации</h3><p>Заключен договор с «Татэнергосбытом», установлен счётчик. Проведен водопровод, устроены два колодца.</p></div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="timeline-content"><h3>Организационные мероприятия</h3><p>14.09.2024 был проведен меджлис, где были представлены планы строительства и совершен коллективный намаз.</p></div>
-                    </div>
+                <div class="timeline-wrapper">
+                    <div class="timeline-item"><div class="timeline-content"><h3>Проектные работы</h3><p>Проведены все необходимые подготовительные работы: топографическая съёмка, геологические изыскания, подготовлены эскизный и рабочий проекты.</p></div></div>
+                    <div class="timeline-item"><div class="timeline-content"><h3>Подготовка участка</h3><p>Снят растительный слой, уложена водопропускная труба (56 м), начато строительство подпорной стенки и ограждения.</p></div></div>
+                    <div class="timeline-item"><div class="timeline-content"><h3>Организационные мероприятия</h3><p>14.09.2024 был проведен меджлис, где были представлены планы строительства и совершен коллективный намаз на месте будущей мечети.</p></div></div>
+                    <div class="timeline-item"><div class="timeline-content"><h3>Коммуникации</h3><p>Заключен договор с «Татэнергосбытом», установлен счётчик. Проведен водопровод, устроены два колодца.</p></div></div>
                 </div>
+            </div>
+        </section>
+        
+        <section id="estimate">
+            <div class="container estimate-wrapper">
+                <h2>Смета на II этап</h2>
+                <table class="estimate-table">
+                    <tbody>
+                        <tr><td>Монолитные работы (с опалубкой и крепежами)</td><td>3 500 000 ₽</td></tr>
+                        <tr><td>Бетон (250 м³, марка 300)</td><td>1 625 000 ₽</td></tr>
+                        <tr><td>Арматура (24 тонны)</td><td>1 344 000 ₽</td></tr>
+                        <tr><td>Аренда бетононасоса</td><td>250 000 ₽</td></tr>
+                        <tr><td>Экскаватор и кран</td><td>250 000 ₽</td></tr>
+                        <tr><td>Песок и щебень</td><td>200 000 ₽</td></tr>
+                        <tr><td>Водопровод, канализация, септик</td><td>200 000 ₽</td></tr>
+                        <tr><td>Непредвиденные расходы (5%)</td><td>368 000 ₽</td></tr>
+                        <tr class="total-row"><td>Итоговая стоимость:</td><td>7 737 000 ₽</td></tr>
+                    </tbody>
+                </table>
+                <div class="offer"><p>Если у вас есть возможность предложить лучшие цены на работы или материалы, пожалуйста, свяжитесь с имамом: <br><strong>Халиуллин Анвар Зиннатович, +7 960 050-24-12</strong></p></div>
+            </div>
+        </section>
+
+        <section id="about" style="background-color: white;">
+            <div class="container">
+                <h2>Проект мечети</h2>
+                <div class="gallery"></div>
             </div>
         </section>
 
         <section id="reports">
             <div class="container">
                 <h2>Отчет о поступлениях</h2>
+                <p style="text-align:center; max-width: 800px; margin: -40px auto 40px auto;">Отчет обновляется еженедельно. Все данные о поступлениях берутся из <a href="#">публичной таблицы</a> для максимальной прозрачности.</p>
                 <table class="report-table">
                     <thead><tr><th>Дата</th><th>Имя/Комментарий</th><th>Сумма</th></tr></thead>
-                    <tbody><!-- Данные будут вставлены сюда из Google Sheets --></tbody>
+                    <tbody><tr><td colspan="3">Загрузка данных...</td></tr></tbody>
                 </table>
             </div>
         </section>
@@ -314,100 +268,107 @@
 
     <footer id="contact">
         <div class="container">
-            <h2>Контакты</h2>
+            <h2>Контакты и связь</h2>
+            <div class="footer-contacts">
+                <p><strong>Имам мечети:</strong> Халиуллин Анвар Зиннатович</p>
+                <p><strong>Телефон для связи:</strong> +7 960 050-24-12</p>
+                <p>Присоединяйтесь к нам в мессенджерах, чтобы быть в курсе всех новостей:</p>
+                <div class="social-links">
+                    <a href="https://chat.whatsapp.com/BcMsF8BYCU9G6SVV1hFlji" target="_blank">WhatsApp</a> | 
+                    <a href="https://t.me/+6SEFaVKac-A1NTY6" target="_blank">Telegram</a>
+                </div>
+            </div>
+            <p class="copyright">© 2024-2025 Строительство мечети в д. Державино. Все права защищены.</p>
         </div>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // --- КОНФИГУРАЦИЯ GOOGLE SHEETS ---
-            // Вставьте сюда ваши опубликованные CSV ссылки
-            const settingsURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTxxxxxxxx/pub?gid=0&single=true&output=csv'; 
-            const donationsURL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTxxxxxxxx/pub?gid=123456789&single=true&output=csv';
-
-            // --- КОНФИГУРАЦИЯ ГАЛЕРЕИ ---
-            // Просто добавляйте ссылки на новые фото в этот список
-            const galleryImages = [
+            // --- ОСНОВНАЯ КОНФИГУРАЦИЯ ---
+            const DEFAULT_COLLECTED = 4232823;
+            const DEFAULT_GOAL = 7737000;
+            const SETTINGS_URL = 'ВАША_ССЫЛКА_НА_CSV_ЛИСТА_SETTINGS'; 
+            const DONATIONS_URL = 'ВАША_ССЫЛКА_НА_CSV_ЛИСТА_DONATIONS';
+            const GALLERY_IMAGES = [
                 'https://i.ibb.co/L5hSc2X/mosque-1.jpg', 'https://i.ibb.co/3sX8L6X/mosque-2.jpg',
                 'https://i.ibb.co/8b725x1/mosque-3.jpg', 'https://i.ibb.co/5cGbNBr/mosque-4.jpg'
             ];
             
-            // --- ЛОГИКА ПЕРЕКЛЮЧЕНИЯ СПОСОБОВ ОПЛАТЫ ---
+            // --- ЛОГИКА ПЛАТЕЖЕЙ ---
             const paymentRadios = document.querySelectorAll('input[name="payment_method"]');
             const bankDetailsBlock = document.getElementById('bank-details');
             paymentRadios.forEach(radio => {
-                radio.addEventListener('change', function() {
-                    if (this.value === 'invoice') {
-                        bankDetailsBlock.style.display = 'block';
-                    } else {
-                        bankDetailsBlock.style.display = 'none';
-                    }
+                radio.addEventListener('change', e => {
+                    bankDetailsBlock.style.display = e.target.value === 'invoice' ? 'block' : 'none';
                 });
             });
 
-            // --- Функция для загрузки и парсинга CSV ---
+            // --- УНИВЕРСАЛЬНАЯ ФУНКЦИЯ ЗАГРУЗКИ ДАННЫХ ---
             async function fetchData(url) {
+                if (!url || url.includes('ВАША_ССЫЛКА')) return null;
                 try {
-                    const response = await fetch(url + '&t=' + new Date().getTime()); // Добавляем кэш-бастер
-                    if (!response.ok) throw new Error('Network response was not ok.');
+                    const response = await fetch(`${url}&t=${new Date().getTime()}`);
+                    if (!response.ok) return null;
                     const csvText = await response.text();
                     return csvText.split('\n').map(row => row.split(',').map(cell => cell.trim()));
                 } catch (error) {
-                    console.error('Ошибка при загрузке данных из Google Sheets:', error);
+                    console.error("Fetch Error:", error);
                     return null;
                 }
             }
 
-            // --- Обновление данных с сайта ---
+            // --- ОБНОВЛЕНИЕ ВСЕХ ДАННЫХ НА САЙТЕ ---
             async function updateSiteData() {
-                const settingsData = await fetchData(settingsURL);
+                let collected = DEFAULT_COLLECTED;
+                let goal = DEFAULT_GOAL;
+
+                const settingsData = await fetchData(SETTINGS_URL);
                 if (settingsData && settingsData.length > 1) {
                     const settings = Object.fromEntries(settingsData);
-                    const collectedAmount = parseInt(settings.collected_amount, 10);
-                    const goalAmount = parseInt(settings.goal_amount, 10);
-                    updateProgressBar(collectedAmount, goalAmount);
+                    collected = parseInt(settings.collected_amount, 10) || DEFAULT_COLLECTED;
+                    goal = parseInt(settings.goal_amount, 10) || DEFAULT_GOAL;
                 }
+                updateProgressBar(collected, goal);
 
-                const donationsData = await fetchData(donationsURL);
+                const donationsData = await fetchData(DONATIONS_URL);
+                const reportTableBody = document.querySelector('#reports .report-table tbody');
                 if (donationsData) {
-                    const reportTableBody = document.querySelector('#reports .report-table tbody');
                     let tableHTML = '';
-                    const dataRows = donationsData.slice(1);
-                    dataRows.forEach(row => {
+                    donationsData.slice(1).forEach(row => {
                         if (row.length >= 3 && row[0]) {
                             const [date, name, amountRaw] = row;
                             const amount = new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 }).format(amountRaw);
                             tableHTML += `<tr><td>${date}</td><td>${name}</td><td>${amount}</td></tr>`;
                         }
                     });
-                    reportTableBody.innerHTML = tableHTML;
+                    reportTableBody.innerHTML = tableHTML || '<tr><td colspan="3">Пока нет данных о пожертвованиях.</td></tr>';
+                } else {
+                     reportTableBody.innerHTML = '<tr><td colspan="3">Не удалось загрузить данные. Пожалуйста, попробуйте позже.</td></tr>';
                 }
             }
             
-            // --- Обновление прогресс-бара ---
+            // --- ОБНОВЛЕНИЕ ПРОГРЕСС-БАРА ---
             function updateProgressBar(collected, goal) {
                 const progressBar = document.getElementById('progress-bar');
                 const collectedEl = document.getElementById('collected-amount-text');
                 const goalEl = document.getElementById('goal-amount-text');
+                const percentageEl = document.getElementById('progress-percentage');
                 const formatCurrency = (num) => new Intl.NumberFormat('ru-RU', { style: 'currency', currency: 'RUB', minimumFractionDigits: 0 }).format(num);
 
                 collectedEl.textContent = `Собрано: ${formatCurrency(collected)}`;
                 goalEl.textContent = `Нужно: ${formatCurrency(goal)}`;
-                const percentage = Math.min((collected / goal) * 100, 100);
-                setTimeout(() => { progressBar.style.width = percentage + '%'; }, 300);
+                const percentage = goal > 0 ? Math.round((collected / goal) * 100) : 0;
+                percentageEl.textContent = `${percentage}%`;
+                setTimeout(() => { progressBar.style.width = `${percentage}%`; }, 300);
             }
             
-            // --- Построение галереи ---
+            // --- ПОСТРОЕНИЕ ГАЛЕРЕИ ---
             function buildGallery() {
                 const galleryContainer = document.querySelector('.gallery');
-                let galleryHTML = '';
-                galleryImages.forEach(url => {
-                    galleryHTML += `<img src="${url}" alt="Фото проекта мечети">`;
-                });
-                galleryContainer.innerHTML = galleryHTML;
+                galleryContainer.innerHTML = GALLERY_IMAGES.map(url => `<img src="${url}" alt="Фото проекта мечети">`).join('');
             }
 
-            // --- Первоначальный запуск ---
+            // --- ПЕРВОНАЧАЛЬНЫЙ ЗАПУСК ---
             buildGallery();
             updateSiteData();
         });
